@@ -1,3 +1,5 @@
+from functools import cache
+
 from pydantic import BaseModel
 from pydantic import PostgresDsn
 from pydantic_settings import (
@@ -49,4 +51,9 @@ class Settings(BaseSettings):
     db: DatabaseConfig
 
 
-settings = Settings()
+@cache
+def get_settings():
+    return Settings()
+
+
+settings = get_settings()
