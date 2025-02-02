@@ -15,6 +15,13 @@ async def get_all_users(
     return result.all()
 
 
+async def get_user(
+    session: AsyncSession,
+    user_id: int,
+) -> User | None:
+    return await session.get(User, user_id)
+
+
 async def create_user(
     session: AsyncSession,
     user_create: UserCreate,

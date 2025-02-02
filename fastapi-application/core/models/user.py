@@ -11,6 +11,10 @@ class User(IntIdPkMixin, Base):
     foo: Mapped[int]
     bar: Mapped[int]
 
+    @property
+    def email(self) -> str:
+        return f"{self.username}@domain.com"
+
     __table_args__ = (
         UniqueConstraint("foo", "bar"),
     )
