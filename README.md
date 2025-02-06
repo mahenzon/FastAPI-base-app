@@ -20,3 +20,8 @@ Resources:
 - Alembic + asyncio recipe https://alembic.sqlalchemy.org/en/latest/cookbook.html#using-asyncio-with-alembic
 - orjson https://github.com/ijl/orjson
 - FastAPI ORJSONResponse https://fastapi.tiangolo.com/advanced/custom-response/#use-orjsonresponse
+
+
+```shell
+taskiq worker core:broker --fs-discover --tasks-pattern "**/tasks"
+```

@@ -10,15 +10,18 @@ from fastapi.openapi.docs import (
 from fastapi.responses import ORJSONResponse
 from starlette.responses import HTMLResponse
 
+from core import broker
 from core.models import db_helper
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # startup
+    await broker.startup()
     yield
     # shutdown
     await db_helper.dispose()
+    await broker.shutdown()
 
 
 def register_static_docs_routes(app: FastAPI) -> None:
