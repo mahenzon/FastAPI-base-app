@@ -12,6 +12,8 @@ asyncpg = "^0.29.0"
 alembic = "^1.13.1"
 gunicorn = "^23.0.0"
 aiosmtplib = "^3.0.2"
+taskiq = "^0.11.11"
+taskiq-aio-pika = "^0.4.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
