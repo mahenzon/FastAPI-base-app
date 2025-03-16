@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Homepage
+{% endblock %}
+
+{% block body %}
+	<h1>Hello API!</h1>
+
+  <div>
+    <h2>Pages:</h2>
+    <ul>
+      <li><a href="{{ url_for('users:list') }}">Users</a></li>
+    </ul>
+  </div>
+{% endblock %}

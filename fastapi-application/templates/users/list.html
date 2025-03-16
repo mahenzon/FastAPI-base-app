@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Users List
+{% endblock %}
+
+{% block body %}
+	<h1>Users:</h1>
+  <ul>
+  {% for user in users %}
+  	<li>{{ user.username }} <a href="mailto:{{ user.email }}"
+    >{{ user.email }}</a></li>
+  {% endfor %}
+  </ul>
+
+  <div>
+    <a href="{{ url_for('home') }}">Back to homepage</a>
+  </div>
+{% endblock %}
