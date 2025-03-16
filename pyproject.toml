@@ -14,6 +14,7 @@ gunicorn = "^23.0.0"
 aiosmtplib = "^3.0.2"
 taskiq = "^0.11.11"
 taskiq-aio-pika = "^0.4.1"
+jinja2 = "^3.1.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
