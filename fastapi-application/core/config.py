@@ -15,6 +15,12 @@ LOG_DEFAULT_FORMAT = (
 )
 
 
+WORKER_LOG_DEFAULT_FORMAT = (
+    # тут докидываем имя процесса - там будет имя и номер воркера
+    "[%(asctime)s.%(msecs)03d] [%(processName)s] %(module)10s:%(lineno)-3d %(levelname)-7s - %(message)s"
+)
+
+
 class RunConfig(BaseModel):
     host: str = "0.0.0.0"
     port: int = 8000
@@ -55,6 +61,7 @@ class ApiPrefix(BaseModel):
 
 class TaskiqConfig(BaseModel):
     url: AmqpDsn = "amqp://guest:guest@localhost:5672//"
+    log_format: str = WORKER_LOG_DEFAULT_FORMAT
 
 
 class DatabaseConfig(BaseModel):
