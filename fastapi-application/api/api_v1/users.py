@@ -1,3 +1,4 @@
+import logging
 from typing import Annotated
 
 from fastapi import (
@@ -14,6 +15,7 @@ from core.schemas.user import (
 )
 from crud import users as users_crud
 
+log = logging.getLogger(__name__)
 router = APIRouter(tags=["Users"])
 
 
@@ -41,5 +43,6 @@ async def create_user(
         session=session,
         user_create=user_create,
     )
+    log.info("Created user %s", user.id)
     await send_welcome_email.kiq(user_id=user.id)
     return user
