@@ -22,21 +22,6 @@ Resources:
 - FastAPI ORJSONResponse https://fastapi.tiangolo.com/advanced/custom-response/#use-orjsonresponse
 
 
-## Workers
-
-Запуск воркеров taskiq
-
 ```shell
 taskiq worker core:broker --fs-discover --tasks-pattern "**/tasks"
 ```
-
-**Важно**
-
-Если вы хотите указать свой кастомный формат логирования,
-необходимо передать специальный флаг `--no-configure-logging`,
-чтобы фреймворк не применял принудительно встроенный формат.
-
-```shell
-taskiq worker core:broker --no-configure-logging --fs-discover --tasks-pattern "**/tasks"
-```
-
