@@ -11,7 +11,6 @@ from create_fastapi_app import create_app
 logging.basicConfig(
     level=settings.logging.log_level_value,
     format=settings.logging.log_format,
-    datefmt=settings.logging.log_date_format,
 )
 
 main_app = create_app(

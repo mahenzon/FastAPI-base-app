@@ -36,7 +36,6 @@ class LoggingConfig(BaseModel):
         "critical",
     ] = "info"
     log_format: str = LOG_DEFAULT_FORMAT
-    log_date_format: str = "%Y-%m-%d %H:%M:%S"
 
     @property
     def log_level_value(self) -> int:
