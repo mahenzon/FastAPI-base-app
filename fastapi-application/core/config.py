@@ -14,6 +14,8 @@ LOG_DEFAULT_FORMAT = (
     "[%(asctime)s.%(msecs)03d] %(module)10s:%(lineno)-3d %(levelname)-7s - %(message)s"
 )
 
+WORKER_LOG_DEFAULT_FORMAT = "[%(asctime)s.%(msecs)03d][%(processName)s] %(module)16s:%(lineno)-3d %(levelname)-7s - %(message)s"
+
 
 class RunConfig(BaseModel):
     host: str = "0.0.0.0"
@@ -36,6 +38,7 @@ class LoggingConfig(BaseModel):
         "critical",
     ] = "info"
     log_format: str = LOG_DEFAULT_FORMAT
+    date_format: str = "%Y-%m-%d %H:%M:%S"
 
     @property
     def log_level_value(self) -> int:
@@ -54,6 +57,7 @@ class ApiPrefix(BaseModel):
 
 class TaskiqConfig(BaseModel):
     url: AmqpDsn = "amqp://guest:guest@localhost:5672//"
+    log_format: str = WORKER_LOG_DEFAULT_FORMAT
 
 
 class DatabaseConfig(BaseModel):

@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -13,15 +14,21 @@ from starlette.responses import HTMLResponse
 from core import broker
 from core.models import db_helper
 
+log = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # startup
-    await broker.startup()
+    if not broker.is_worker_process:
+        await broker.startup()
+
     yield
     # shutdown
     await db_helper.dispose()
-    await broker.shutdown()
+
+    if not broker.is_worker_process:
+        await broker.shutdown()
 
 
 def register_static_docs_routes(app: FastAPI) -> None:

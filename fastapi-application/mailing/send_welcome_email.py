@@ -1,15 +1,8 @@
-from crud import users
-from core.models import User, db_helper
+from core.models import User
 from .send_email import send_email
 
 
-async def send_welcome_email(user_id: int) -> None:
-    async with db_helper.session_factory() as session:
-        user: User = await users.get_user(
-            session=session,
-            user_id=user_id,
-        )
-
+async def send_welcome_email(user: User) -> None:
     await send_email(
         recipient=user.email,
         subject="Welcome to our site!",
