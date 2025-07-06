@@ -16,6 +16,7 @@ taskiq = "^0.11.17"
 taskiq-aio-pika = "^0.4.1"
 jinja2 = "^3.1.5"
 orjson = "^3.10.18"
+taskiq-fastapi = "^0.3.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"

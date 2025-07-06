@@ -1655,6 +1655,22 @@ files = [
 ]
 
 [[package]]
+name = "taskiq-fastapi"
+version = "0.3.5"
+description = "FastAPI integration for taskiq"
+optional = false
+python-versions = "<4.0.0,>=3.8.1"
+groups = ["main"]
+files = [
+    {file = "taskiq_fastapi-0.3.5-py3-none-any.whl", hash = "sha256:35553cb05cfb8e34d50179bad747d79a42d782f5b9c529128ad64263af8c246f"},
+    {file = "taskiq_fastapi-0.3.5.tar.gz", hash = "sha256:0df3df3e7e0a355b9f21a4f81429ad95d0d33af305e75039654ac13ae26c538f"},
+]
+
+[package.dependencies]
+fastapi = ">=0.93.0"
+taskiq = ">=0.8.0,<1"
+
+[[package]]
 name = "typer"
 version = "0.16.0"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
@@ -2083,4 +2099,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "bbb41c4dcc48a39590ed110a203044bd3c30ae0ce6c13fa385fbc8506088e1f8"
+content-hash = "01ab25c1ecbe67a225c2263e58c651b051dae3c47797dcf04d9596f3c7cbd604"
