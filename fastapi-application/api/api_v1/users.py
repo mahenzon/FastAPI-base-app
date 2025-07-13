@@ -7,7 +7,7 @@ from fastapi import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from tasks import send_welcome_email
+from core.fs_broker import user_registered
 from core.models import db_helper
 from core.schemas.user import (
     UserRead,
@@ -44,5 +44,9 @@ async def create_user(
         user_create=user_create,
     )
     log.info("Created user %s", user.id)
-    await send_welcome_email.kiq(user_id=user.id)
+    await user_registered.publish(
+        subject=f"users.{user.id}.created",
+        message=None,
+    )
+    # await send_welcome_email.kiq(user_id=user.id)
     return user
