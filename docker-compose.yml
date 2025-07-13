@@ -43,6 +43,11 @@ services:
       options:
         max-size: "1m"
 
+  nats:
+    image: nats:2.11-alpine
+    ports:
+      - "4222:4222"
+
   adminer:
     image: adminer
     ports:
