@@ -371,14 +371,14 @@ standard = ["uvicorn[standard] (>=0.15.0)"]
 
 [[package]]
 name = "faststream"
-version = "0.5.45"
+version = "0.5.47"
 description = "FastStream: the simplest way to work with a messaging queues"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "faststream-0.5.45-py3-none-any.whl", hash = "sha256:9d336ace81d77751ff38eac890ec0c5783bcacca73660d5ec9e041649507615d"},
-    {file = "faststream-0.5.45.tar.gz", hash = "sha256:6c13fc92bd4557b47b87903e0a16c889d0961206eae4a4cd561f552fc0663ed3"},
+    {file = "faststream-0.5.47-py3-none-any.whl", hash = "sha256:a2665423ae944b89f3c22533a31e384ed806c9f2135732a1ebe42049379553f3"},
+    {file = "faststream-0.5.47.tar.gz", hash = "sha256:21e630ce8baa4d4507433ace11004d737ee2f02f41e60f2ff2e55280060d966c"},
 ]
 
 [package.dependencies]
@@ -2166,4 +2166,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "3c3ac393cb8b5d9fcf22b07be51f4c893171495ed3a26b6b5856d805a6324e94"
+content-hash = "86f153e8a096c47f780f77c59db3d5e30f33faf97e2c6041fcad2af9704d179c"
