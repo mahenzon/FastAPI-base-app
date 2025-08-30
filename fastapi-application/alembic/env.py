@@ -1,5 +1,6 @@
 import asyncio
 from logging.config import fileConfig
+from pathlib import Path
 
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
@@ -30,6 +31,16 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 config.set_main_option("sqlalchemy.url", str(settings.db.url))
+
+
+ALEMBIC_DIR = Path(__file__).resolve().parent
+FUNCTIONS_DIR = ALEMBIC_DIR / "functions"
+
+config.set_section_option(
+    "extra",
+    "functions.dir",
+    str(FUNCTIONS_DIR),
+)
 
 
 def run_migrations_offline() -> None:
