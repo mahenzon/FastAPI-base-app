@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
@@ -16,3 +18,4 @@ class UserRead(UserBase):
     )
 
     id: int
+    created_at: datetime
