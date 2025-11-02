@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -19,3 +20,14 @@ class UserRead(UserBase):
 
     id: int
     created_at: datetime
+
+
+class UserStatsRequest(BaseModel):
+    user_id: int
+    stat_type: Literal["addresses", "spam-and-eggs"]
+
+
+class UserStatsResponse(BaseModel):
+    user_id: int
+    stat_type: Literal["addresses", "spam-and-eggs"]
+    addresses: int = 0
