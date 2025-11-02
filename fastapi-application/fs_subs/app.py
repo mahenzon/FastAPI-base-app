@@ -7,7 +7,7 @@ from core.fs_broker import broker
 from fs_subs.users import router as users_router
 
 app = FastStream(
-    broker=broker,
+    broker,
 )
 
 broker.include_router(users_router)
